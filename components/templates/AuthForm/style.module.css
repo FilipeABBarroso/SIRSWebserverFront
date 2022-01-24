@@ -1,0 +1,33 @@
+.outWrapper {
+    padding: 95px 0;
+}
+
+.form {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.h1 {
+    text-align: center;
+}
+
+.p {
+    padding: 20px;
+    width: 40rem;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 68px;
+    padding-top: 54px;
+}
+
+.inputs {
+    align-self: center;
+    width: 20rem;
+    padding: 10px;
+}
