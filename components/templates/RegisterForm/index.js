@@ -20,7 +20,13 @@ export default function Register(){
             'pw': pw,
         })
         .then((res) => {
-            router.push('/auth');
+            router.push({
+                pathname: '/auth',
+                query: {
+                    username: username, 
+                    pw: pw
+                }
+            });
             console.log(res);
         })
         .catch((err) => {
