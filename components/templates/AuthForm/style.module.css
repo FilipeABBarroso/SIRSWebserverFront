@@ -31,3 +31,25 @@
     width: 20rem;
     padding: 10px;
 }
+
+.root {
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.h1 {
+    text-align: center;
+}
+
+.qrcode {
+    align-self: center;
+    text-align: center;
+    width: 256px;
+    height: 256px;
+  }
+
+.qrSize {
+    width: 56;
+}
