@@ -1,18 +1,36 @@
 import React from "react";
 import styles from "./style.module.css";
+import { nextClient } from '../../../lib/api-client';
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { QRCode } from "react-qr-svg";
 
-export default function Auth(){
+export default function Auth() {
   const [code, setCode] = useState('');
   const router = useRouter();
+  const [wrongCode, setWrongCode] = useState(false);
 
-  const handleSubmit = () => {
-
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    nextClient
+      .post('/auth', {
+        'uuid': "b14739c1-ebc1-418c-9774-45c0edb1656d",
+        'auth_code': code,
+      })
+      .then((res) => {
+        router.push('/');
+        console.log(res);
+      })
+      .catch((err) => {
+        if (err.response?.status === 400 && err.response.data) {
+          if (err.response.data === 'Wrong code') {
+            if (!wrongCode) {
+              setWrongCode(true);
+            }
+          }
+        }
+      });
   };
-
-
 
   return (
     <>
@@ -34,6 +52,11 @@ export default function Auth(){
           setCode(e.target.value);
         }} />
         <button onClick={handleSubmit}>submit</button>
+        {
+          wrongCode ? (
+            <label className={styles.label}>Wrong code</label>
+          ) : null
+        }
       </div>
     </>
   );

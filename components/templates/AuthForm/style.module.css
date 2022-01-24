@@ -13,6 +13,10 @@
     text-align: center;
 }
 
+.label {
+    padding: 10px;
+}
+
 .p {
     padding: 20px;
     width: 40rem;
