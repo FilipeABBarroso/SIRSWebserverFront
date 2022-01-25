@@ -1,0 +1,15 @@
+.ficheiro {
+    display: flex;
+    flex-direction: column;
+    padding: 60px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.label {
+    padding-bottom: 60px;
+}
+
+.wrapper {
+    padding: 25px;
+}

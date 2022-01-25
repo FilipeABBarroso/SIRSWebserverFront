@@ -1,6 +1,7 @@
 :root {
   --background: #fdfdfd;
-  --shadow: #e2e2e2;
+  --contBackground: rgb(243, 243, 243);
+  --shadow: #cacaca;
   --text: #5d5149;
 
 }
@@ -25,7 +26,7 @@ body {
 }
 
 .box {
-  background-color: var(--background);
+  background-color: var(--contBackground);
   border-radius: 10px;
   box-shadow: 0 2px 4px 0 var(--shadow);
 }

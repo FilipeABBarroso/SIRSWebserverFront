@@ -1,0 +1,21 @@
+.h1 {
+    padding-left: 25px;
+    font-family: sans-serif;
+}
+
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    padding-top: 54px;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.buttons {
+    padding: 40px;
+}
