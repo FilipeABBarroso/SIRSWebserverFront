@@ -4,11 +4,9 @@ import { nextClient } from '../../../lib/api-client';
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { QRCode } from "react-qr-svg";
-import { useCookies } from "react-cookie";
 
 export default function Auth({ secret, token, path, pw, username, jwt }) {
   const [code, setCode] = useState('');
-  const [cookies, setCookie] = useCookies(['jwt'])
   const router = useRouter();
   const [wrongCode, setWrongCode] = useState(false);
 
@@ -20,7 +18,7 @@ export default function Auth({ secret, token, path, pw, username, jwt }) {
         'auth_code': code,
       })
       .then(() => {
-        if(pw && username) {
+        if(pw && username) { //register
           nextClient
           .post(path, {
             uid: token,
@@ -28,11 +26,7 @@ export default function Auth({ secret, token, path, pw, username, jwt }) {
             username: username,
           });
         } else {
-          let d = new Date();
-          d.setTime(d.getTime() + (90*60*1000));
-          console.log(d);
-          setCookie("jwt", jwt, {path: "/", expires: d});
-          console.log('Foi');
+          localStorage.setItem("token", jwt); //login
         }
         router.push('/');
       })

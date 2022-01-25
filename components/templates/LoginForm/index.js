@@ -16,6 +16,10 @@ export default function Login(){
     const [qr, setQR] = useState(false);
     const [wrongUser, setWrongUser] = useState(false);
 
+    if(localStorage.getItem("token")){
+        router.push('/')
+    }
+
     const handleForm = async (e) => {
         e.preventDefault();
         nextClient
@@ -24,7 +28,7 @@ export default function Login(){
             'pw': pw,
         })
         .then((res) => {
-            setToken(res.data.token);
+            setToken(res.data.token); //to auth server
             setJWT(res.data.uid);
             setQR(true);
         })

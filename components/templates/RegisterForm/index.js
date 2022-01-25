@@ -16,6 +16,10 @@ export default function Register(){
 
     const router = useRouter();
 
+    if(localStorage.getItem("token")){
+        router.push('/')
+    }
+
     const handleForm = async (e) => {
         e.preventDefault();
         nextClient
