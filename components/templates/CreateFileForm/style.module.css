@@ -1,0 +1,27 @@
+.ficheiro {
+    display: flex;
+    flex-direction: column;
+    padding-left: 50px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    padding-right: 50px;
+}
+
+.h1 {
+    padding-bottom: 20px;
+}
+
+.label {
+    padding-top: 20px;
+}
+
+.wrapper {
+    padding: 25px;
+}
+
+.lowerButtons {
+    padding-top: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
