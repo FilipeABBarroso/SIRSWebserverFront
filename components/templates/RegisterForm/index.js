@@ -16,8 +16,8 @@ export default function Register(){
 
     const router = useRouter();
 
-    if(localStorage.getItem("token")){
-        router.push('/')
+    if(typeof window !== 'undefined' && localStorage.getItem("token")){
+        router.push('/files')
     }
 
     const handleForm = async (e) => {

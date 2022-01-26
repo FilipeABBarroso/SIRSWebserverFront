@@ -8,6 +8,11 @@
 
 .label {
     padding-bottom: 60px;
+    text-align: center;
+}
+
+.h2 {
+    text-align: center;
 }
 
 .wrapper {

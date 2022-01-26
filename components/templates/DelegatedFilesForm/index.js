@@ -4,7 +4,7 @@ import File from "../../File"
 import {useRouter} from "next/router"
 import { nextClient } from "../../../lib/api-client";
 
-export default function DelegatedFiles ({files}) {
+export default function DelegatedFiles () {
     const router = useRouter();
 
     return (

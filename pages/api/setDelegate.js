@@ -6,15 +6,16 @@ export default async function handler(req, res) {
             res.status(400).end();
         }
         try {
-            const resBack = await backendClient.post('/authentication', req.body);
+            console.log();
+            const resBack = await backendClient.post('/delegatedFiles', req.body,
+            { headers: { "x-access-token": req.body.token }});
+            
             res.status(200).end();
         }catch(err) {
             if(err.response?.status === 400) {
-                res.status(401).json(err.response.data);
+                console.log(err);
+                res.status(400).json(err.response.data);
                 return;
-            }
-            if (err.response?.status === 401) {
-              res.status(400).end();
             }
         }
     } else {

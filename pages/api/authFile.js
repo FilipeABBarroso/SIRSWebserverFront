@@ -6,7 +6,7 @@ export default async function handler(req, res) {
             res.status(400).end();
         }
         try {
-            const resBack = await backendClient.post('/authentication', req.body);
+            const resBack = await backendClient.post('/fileAuthentication', req.body, { headers: { "x-access-token": req.body.token }});
             res.status(200).end();
         }catch(err) {
             if(err.response?.status === 400) {

@@ -2,7 +2,10 @@ import { useRouter } from "next/router";
 
 function Home() {
   const router = useRouter();
-
+  
+  if(typeof window !== 'undefined' && localStorage.getItem("token")){
+    router.push('/files')
+}
   return (
     <div>
       <h1>
