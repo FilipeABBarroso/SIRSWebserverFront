@@ -16,8 +16,8 @@ export default function Login(){
     const [qr, setQR] = useState(false);
     const [wrongUser, setWrongUser] = useState(false);
 
-    if(localStorage.getItem("token")){
-        router.push('/')
+    if(typeof window !== 'undefined' && localStorage.getItem("token")){
+        router.push('/files')
     }
 
     const handleForm = async (e) => {

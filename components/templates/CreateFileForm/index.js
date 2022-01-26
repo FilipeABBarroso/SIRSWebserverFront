@@ -13,11 +13,13 @@ export default function CreateFile () {
 
     const handleClick = async (e) => {
         e.preventDefault();
+        const jwt = localStorage.getItem('token');
         nextClient
         .post('/createFile', {
             title: title,
             content: content,
             isBlocked: isBlocked,
+            jwt: jwt,
         }).then((res) => {
             router.push('/files');
         })

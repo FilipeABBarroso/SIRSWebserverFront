@@ -3,6 +3,16 @@
     font-family: sans-serif;
 }
 
+.svg {
+    padding: 5px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button {
+    padding-bottom: 20px;
+}
+
 .wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -18,4 +28,19 @@
 
 .buttons {
     padding: 40px;
+}
+
+.ficheiro {
+    display: flex;
+    flex-direction: column;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.label {
+    padding-bottom: 60px;
+}
+
+.wrapper {
+    padding: 25px;
 }
