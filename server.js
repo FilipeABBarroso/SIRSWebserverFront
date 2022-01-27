@@ -13,10 +13,10 @@ const httpsOptions = {
 
 app.prepare().then(() => {
   createServer(httpsOptions, (req, res) => {
-    const parsedUrl = parse(req.url, true);
+    const parsedUrl = parse('10.2.12.50', true);
     handle(req, res, parsedUrl);
   }).listen(443, (err) => {
     if (err) throw err;
-    console.log("> Server started on https://localhost:443");
+    console.log("> Server started on https://10.2.12.50:443");
   });
 });
