@@ -83,7 +83,7 @@ export default function Files () {
     const handleDelegation = async (e) => {
         e.preventDefault();
         nextClient
-        .post('/', {
+        .post('/getDelegated', {
             token: localStorage.getItem("token"),
         })
         .then((res) => {
@@ -105,8 +105,8 @@ export default function Files () {
                     </div>
                 </div> )
             ));
-            setDelegatedFiles(true);
-            setMyFiles(false);
+            setDelegatedFiles(false);
+            setMyFiles(true);
             setBack(true);
         })
         .catch((err) => {
@@ -122,6 +122,7 @@ export default function Files () {
             'token': localStorage.getItem("token"),
             'fileHashes': JSON.parse(localStorage.getItem("fileHashes")),
         }).then(() => {
+            localStorage.removeItem("fileHashes");
             router.push('/');
         })
         .catch((err) => {
@@ -154,7 +155,7 @@ export default function Files () {
                         }
                         {
                             isDelegatedFiles ? (
-                                <button onClick={(e) => {handleDelegation}}>My delegated files</button>
+                                <button onClick={handleDelegation}>My delegated files</button>
                             ) : null
                         }
 
