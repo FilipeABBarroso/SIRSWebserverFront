@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start --hostname 10.2.32.58 -p 9999",
+    "start": "node server.js",
     "lint": "next lint"
   },
   "dependencies": {

@@ -5,6 +5,7 @@ import {useRouter} from "next/router"
 import classNames from "classnames";
 import { nextClient } from "../../../lib/api-client";
 import AuthPage from "../AuthForm"
+import { string } from "prop-types";
 
 export default function Files () {
     const [isMyFiles, setMyFiles] = useState(true);
@@ -21,6 +22,8 @@ export default function Files () {
 
     const handleFiles = async (e) => {
         e.preventDefault();
+        const fh = []
+        localStorage.setItem("fileHashes", JSON.stringify(fh));
         nextClient
         .post('/getFiles', {
             token: localStorage.getItem("token"),
@@ -54,7 +57,7 @@ export default function Files () {
                                         setFile(true);                                    
                                     }
                                 }}>Open</button>
-                                <input type="checkbox" value={file.fileHash}id={file.id} onChange={handleCheck}/*() => {
+                                <input type="checkbox" value={file.fileHash} id={file.id} onChange={handleCheck}/*() => {
                                     if(selected.indexOf(file.fileHash) !== -1){
                                         setSelected(selected.splice(selected.indexOf(file.fileHash)));
                                     } else {
@@ -117,7 +120,7 @@ export default function Files () {
         nextClient
         .post('setDelegate', {
             'token': localStorage.getItem("token"),
-            'fileHashes': localStorage.getItem("fileHashes"),
+            'fileHashes': JSON.parse(localStorage.getItem("fileHashes")),
         }).then(() => {
             router.push('/');
         })
@@ -127,13 +130,13 @@ export default function Files () {
     }
 
     const handleCheck = (e) => {
-        var updatedList = localStorage.getItem("fileHashes");
+        var updatedList = JSON.parse(localStorage.getItem("fileHashes"));
         if(e.target.checked){
-            updatedList = [ ...selected, e.target.value];
+            updatedList.push(e.target.value);
         } else {
-            updatedList.splice(localStorage.getItem("fileHashes").indexOf(e.target.value), 1);
+            updatedList.splice(updatedList.indexOf(e.target.value), 1);
         }
-        localStorage.setItem("fileHashes", updatedList);
+        localStorage.setItem("fileHashes", JSON.stringify(updatedList));
     }
 
     return (

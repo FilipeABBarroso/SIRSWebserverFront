@@ -7,7 +7,7 @@ export default async function handler(req, res) {
         }
         try {
             console.log();
-            const resBack = await backendClient.post('/delegatedFiles', req.body,
+            const resBack = await backendClient.post('/delegateFiles', req.body,
             { headers: { "x-access-token": req.body.token }});
             
             res.status(200).end();
