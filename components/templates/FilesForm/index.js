@@ -95,10 +95,17 @@ export default function Files () {
                             <label className={styles.label} >{file.title}</label>
                             <div className={styles.button}>
                                 <button onClick={(e) => {
-                                    setAuth(false);
-                                    setMain(false);
-                                    setFileContent(file);
-                                    setFile(true);                                    
+                                    if(file.isBlocked){
+                                        setAuth(true);
+                                        setMain(false);
+                                        setFileContent(file);
+                                        setFile(false);
+                                    } else {
+                                        setAuth(false);
+                                        setMain(false);
+                                        setFileContent(file);
+                                        setFile(true);                                    
+                                    }                                   
                                 }}>Open</button>
                             </div>
                         </div>
